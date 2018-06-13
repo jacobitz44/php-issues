@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>ACS Development</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/creative.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">ACS Development</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="aboutSFCA.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="aboutSFCA.html#criterea">Criterea</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="aboutSFCA.html#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="pastrecipientsSFCA.html">Past Recipients</a>
+          </li>
+          <li class="nav-item">
+
+            <a class="nav-link js-scroll-trigger" href="applySFCA.html">Apply</a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white d-flex" style="background-image: url('img/sfca-bg.jpg');">
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+              <strong class="bl-outline">The Simboli Family College Award</strong>
+            </h1>
+          <hr>
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <p class="bl-outline">Helping the community reach it's full potential.</p>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="section-heading text-white" style="text-align: center;">Personal Information<a class="hidelinks" id="p_info_link" onclick="hide_p_info()">-</a></h2>
+          <hr class="light my-4">
+          <div id="p_info">
+            <form method="POST" onsubmit="get_action(this)" enctype="multipart/form-data">
+              <p class="text-white mb-4"><input type="radio" name="firstyear" value="1" onChange="first()">First Year Applicant
+                <input type="radio" name="firstyear" value="2" onChange="second()">Second Year Applicant
+              </p>
+              <p class="text-white mb-4">First Name
+
+                <input type="text" id="fname" name="fname">
+              M.I.
+                <input type="text" id="mname" name="mname" >
+                Last Name
+                <input type="text" id="lname" name="lname">
+                Date of Birth<input type="date" name="dob">
+                <br/>
+
+
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+                <input type="radio" name="gender" value="other">Other
+
+              </p>
+              <p class="text-white mb-4">
+                SSN#<input type="text" name="SSN" placeholder="###-##-####">
+              </p>
+              <p class="text-white mb-4">
+                Address<input type="text" name="address" placeholder="# Street City, State">
+              </p>
+
+              <p class="text-white mb-4">
+                Home Phone<input type="text" name="homephone" placeholder="(###)###-####"> Cell Phone<input type="text" name="cellphone" placeholder="(###)###-####">
+                <br/>
+                <br/> Email Address<input type="text" name="email" placeholder="user@domain.com">
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="section-heading text-dark" style="text-align: center;">Education Information<a class="hidelinks" id="ed_info_link" onclick="hide_ed_info()">-</a></h2>
+          <hr class="text-dark my-4">
+
+            <p class="text-dark mb-4">Grammar School Attended<input type="text" name="grammarschool"><br>
+              City<input type="text" name="grammarschoolcity"> State<input type="text" name="grammarschoolstate" placeholder="MA"><br>
+              <br>  Middle School Attended<input type="text" name="middleschool"><br>
+              City<input type="text" name="middleschoolcity">State<input type="text" name="middleschoolstate" placeholder="MA">
+            </p>
+            <p class="text-dark mb-4">List the Colleges you have applied to:<br></p>
+            <div id="colleges" name="colleges">
+
+              1<input type = "text" name = "applied[]"><br/>
+
+            </div>
+            <input type="button" name="addcollege" value="Add College" onClick="addnewschool()">
+            <br>
+
+            <p class="text-dark mb-4">School you plan to attend:<input type="text" name="attending"> <br>Intended Major:<input type="text" name="major">
+            </p>
+            <br/>
+            <p class="text-dark mb-4">
+              Are you the first to attend college in your family?<input type="radio" id="firsttocollege" name="firsttocollege" value="yes" onChange="nofamily()">Yes<input type="radio" id="notfirsttocollege" name="firsttocollege" value="no" onChange="yesfamily()">No
+            </p>
+            <p class="text-dark mb-4">
+              <div id="family" name="family" style="display: none;">
+                List Family member and school attended:
+
+                <br/> Name:<input type="text" name="name1" style="width: 165px;"> Relation:<input type="text" name="fam1" style="width: 165px;"> College:<input type="text" name="college1" style="width: 165px;">
+                <br/>
+              </div>
+              <div id="addfambutton" style="display: none;">
+                <input type="button" id="addfam" name="addfam" onClick="addfamily()" value="Add Family Member">
+              </div>
+              <input type="submit" name="submitinfo" value="Submit">
+
+            </p>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+    <section class="bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="section-heading text-white" style="text-align: center;">Financial Information<a class="hidelinks" id="f_info_link">-</a></h2>
+            <hr class="light my-4">
+            <p class="text-white mb-4">Have you applied for any scholarships, loans, or financial aid?<input type="radio" name="finaid" value="yes" onchange="yesaid()">Yes <input type="radio" name="finaid" value="no" onchange="noaid()">No
+            <div id="appforaid" name="appforaid" class="text-white" style="display: none;">
+            <br/> If yes, what aid have you applied for?<br>
+            <input type="text" name="aid1"><br>
+            </div>
+            <div id="addaidbutton" style="display: none;">
+            <input type="button" name="addaid" onClick="addnewaid()" value="Add another" >
+          </div>
+            <br/></p>
+            <p class="text-white mb-4">List any loans, scholarships, or financial aid that you have recieved to date:
+            <div id="recievedaid" name="recievedaid" class="text-white">
+            <br/> Name of Aid:<input type="text" name="earnedaid1">  Amount:<input type="number" name="aidamount1"><br>
+            </div>
+            <input type="button" name="btnaddaid" onClick="addscholarship()" value="Add another">
+          </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="section-heading text-dark" style="text-align: center;">Employment</h2>
+            <hr class="text-dark my-4">
+            <p class="text-dark mb-4"><div id="employmentcontainer" name="employmentcontainer">
+              Employer <input type="text" name="emp1" style="width: 165px;">
+               From<input type="date" name="start1" style="width: 165px;"> to:<input type="date" name="end1" style="width: 165px;">
+              <br>Hours per week:<input type="number" name="hours1"style="width: 80px;"> Wage($/hour):<input type="number" name="wage1" style="width: 80px;"><br>
+              </div>
+              <input type="button" name="jobbtn" onClick="addJob()" value="Add another"><br>
+
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="section-heading text-white" style="text-align: center;">Extra Curriculars</h2>
+            <hr class="light my-4">
+            <p class="text-white mb-4">
+              <div id="extracurcontainer" name="extracurcontainer" class="text-white">
+              Activity:<input type="text" name="extracurr1" style="width: 165px;"> From:<input type="date" name="extrastart1" style="width: 165px;"> to: <input type="date" name="extraend1"  style="width: 165px;">
+              <br>Hours per week:<input type="number" name="extracurrhour1" style="width: 80px;"> Position: <input type="text" name="extracurrpos1" style="width: 165px;"> <br>
+              </div>
+              <input type="button" name="extracurbtn" onClick="addextracurr()" value="Add another">
+              <br/>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="section-heading text-dark" style="text-align: center;">Volunteer Work</h2>
+            <hr class="text-dark my-4">
+            <p class="text-dark mb-4"><div id="volunteer" name="volunteer" class="text-dark">
+            Organization<input type="text" name="volorg1"style="width: 165px;">From<input type="date" name="volstart1" style="width: 165px;"> to <input type="date" name="volend1" style="width: 165px;">
+            <br> Hours per week: <input type="number" name="volhours1" style="width: 80px;"> Position:<input type="text" name="volpos1" style="width: 165px;"><br>
+     		  </div>
+            <input type="button" name="volunteerbtn" onClick="addVol()" value="Add another">
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto ">
+            <h2 class="section-heading text-white" style="text-align: center;">Athletics</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4"><div id="sportcontainer" name="sportcontainer" class="text-white">
+            Sport: <input type="text" name="sport1"style="width: 165px;"> From: <input type="date" name="sportstart1" style="width: 165px;"> to<input type="date" name="sportend1" style="width: 165px;">
+            <br>Hours per week:<input type="number" name="sporthours1" style="width: 80px;"> Position<input type="text" name="sportpos1"style="width: 165px;"><br>
+            </div>
+            <input type="button" name="sportbtn" onClick="addSport()" value="Add another">
+          </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="section-heading text-dark" style="text-align: center;">Parent/Family Information</h2>
+            <hr class="text-dark my-4">
+            <p class="text-dark mb-4">Are your parents:
+            <input type="radio" name="married" value="married">Married
+            <input type="radio" name="married" value="divorced">Divorced
+            <input type="radio" name="married" value="separated">Separated
+            <input type="radio" name="married" value="deceased">Deceased(mother or father)
+            <br/><br/> Father/Guardian's Name: <input type="text" name="dadname">
+            <br/><br/> Address: <input type="text" name="dadaddress"> Homeowner:
+            <input type="radio" name="dadhomeowner" value="yes">Yes
+            <input type="radio" name="dadhomeowner" value="no">No
+            <br/><br/> Occupation:
+            <input type="text" name="dadjob"> Yearly income:<input type="number" name="dadincome" style="width: 192px;">
+            <br/><br/> Name of employer: <input type="text" name="dademployer" style="width: 185px;"> City: <input type="text" name="dadempcity" style="width: 165px;"> State:<input type="text" name="dadempstate" style="width: 50px;" placeholder="MA">
+            <br/><br/> Mother/Guardian's Name: <input type="text" name="momname">
+            <br/><br/> Address: <input type="text" name="momaddress"> Homeowner:
+            <input type="radio" name="momhomeowner" value="yes">Yes
+            <input type="radio" name="momhomeowner" value="no">No
+            <br/><br/> Occupation:
+            <input type="text" name="momjob"> Yearly income:<input type="number" name="momincome" style="width: 192px;">
+            <br/><br/> Name of employer: <input type="text" name="momemployer" style="width: 185px;"> City: <input type="text" name="momempcity" style="width: 165px;"> State:<input type="text" name="momempstate" style="width: 50px;" placeholder="MA">
+            <br/><br/> Approximate Total Family Household Income: <input type="number" name="totalfamincome"><br><br>
+            EFC#(from FAFSA form):<input type="number" name="efc">
+            <br/><br/></p>
+            <p class="text-dark mb-4">List of Brothers and Sisters in school or at home:<br>
+              <div id='siblingcontainer' name='siblingcontainer'>Full Name:<input type="text" name="siblingname1" style="width: 165px;"> Age:<input type="number" name="siblingage1" style="width: 80px;"> School:<input type="text" name="siblingschool1" style="width: 165px;">
+              <br><br></div>
+              <input type="button" name="btnsib" onClick="addSibling()" value="Add Sibling"><br><br>
+            </p>
+            <p class="text-dark mb-4">Family Circumstances:<br>
+              Explain any additional or extaordinary circumstances affecting your family siuation, which you would like the committee to consider.
+              <br>  <textarea rows="5" cols="80" name="famcircumstances"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ">
+            <h2 class="section-heading text-white" style="text-align: center;">Essay Questions</h2>
+            <hr class="light my-4">
+            <p class="text-white mb-4">  1. If you were asked to submit an immigration strategy and plan to the United States Congress, what would you recommend and why?
+              <textarea rows="5" cols="80" name="essayq1"></textarea>
+              <br/><br/>
+              2. Mahatma Ghandi equated freedom with self-rule. He wanted the concept of freedom to include an obligation to others as well as oneself. Please give examples of how obligation to others and to yourself is evident in your life today. Explain how you expect it <br/>
+              will be over your lifetime.<br/>
+              <textarea rows="5" cols="80" name="essayq2"></textarea>
+            </p>
+            <div id="secondyearessays" name="secondyearessays" class="text-white" style="display: none;">
+              <h4> Second Year Applicants</h4><br/><br/>
+              Essay Question:<br/>
+              If you could give advice to the Chelsea School Committee now that you have experienced one year of college, what would it be?<br/><br/>
+              <textarea rows="4" cols="80" name="2yearessay" id="2yearessay"></textarea><br/><br/>
+              Short Answer Question:<br/>
+              If you could give advice to a 9th grade student, what would it be?<br/><br/>
+              <textarea rows="4" cols="80" name="2yearshortanswer" id="2yearshortanswer"></textarea><br/><br/>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="section-heading text-dark" style="text-align: center;">Additional Files</h2>
+            <hr class="text-dark my-4">
+            <p class="text-dark mb-4">
+              High School and/or College Transcript: <input name="transcript" type="file" id="trans" accept=".pdf, .doc, .jpg" size="75"><br/><br/>
+              Test scores(ACT, SAT or equivelant): <input name="testscores" type="file" id="scores" accept=".pdf, .doc, .jpg" size="75"><br/><br/>
+              Recommendation(from teacher, coach, etc.): <input name="recommendation" type="file" id="rec" accept=".pdf, .doc, .jpg" size="75"><br/><br/>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-center">Contact us</h2>
+            <hr class="my-4">
+            <p class="text-center mb-5">Feel free to contact us!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+            <p><a href="tel:+17814602006">781-460-2006</a></p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+            <p>
+              <a href="mailto:administration@acsdevelopment.com">administration@acsdevelopment.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>-->
+
+            <script>
+            var numcol = 1;
+            function addnewschool(){
+              numcol++;
+              var x = document.getElementById("colleges");
+              x.appendChild(document.createTextNode(numcol));
+              var input = document.createElement("input");
+              input.type="text";
+              input.name="applied[]";
+              x.appendChild(input);
+              x.appendChild(document.createElement("br"));
+            }
+            </script>
+            <!-- Bootstrap core JavaScript -->
+            <script src="js/back.js"></script>
+
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Plugin JavaScript -->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+            <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+            <!-- Custom scripts for this template -->
+            <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>
